@@ -1,0 +1,35 @@
+.disable {
+  display: none;
+}
+
+.background {
+  position: fixed;
+  background: #060606;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.transition {
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 55;
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #000000;
+
+  animation: tr 3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+@keyframes tr {
+  0% {
+    background-color: #ffffff00;
+  }
+  100% {
+    background-color: #ffffff;
+  }
+}

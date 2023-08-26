@@ -1,0 +1,33 @@
+.SideBar {
+  position: fixed;
+  bottom: 1em;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-right: 3rem;
+  margin-bottom: 1rem;
+
+  color: aliceblue;
+
+  font-size: 38px;
+}
+
+.SideBar a {
+  color: aliceblue;
+}
+
+.SideBar div {
+  border-right: 0.1rem solid aliceblue;
+  width: 0.9em;
+  height: 5em;
+
+  margin-bottom: 0.8rem;
+}
+
+.SideBar > svg {
+  margin-bottom: 0.8rem;
+}

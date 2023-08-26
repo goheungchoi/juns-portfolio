@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './style/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+// import studio from '@theatre/studio'
+// import extension from '@theatre/r3f/dist/extension'
+
+// studio.initialize();
+// studio.extend(extension);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

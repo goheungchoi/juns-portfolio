@@ -1,0 +1,27 @@
+.Footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  margin-bottom: 1em;
+  margin-right: 3em;
+
+  color: aliceblue;
+}
+
+.Footer > div {
+  border-bottom: 0.1rem solid aliceblue;
+  width: 10em;
+  height: 0.5em;
+
+  margin-right: 0.5em;
+}
+
+.Footer > h1 {
+  font-size: smaller;
+  font-weight: normal;
+}
