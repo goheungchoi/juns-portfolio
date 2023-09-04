@@ -22,7 +22,7 @@
 
   background-color: #000000;
 
-  animation: tr 3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  animation: tr 0.55s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
 @keyframes tr {

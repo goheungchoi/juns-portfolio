@@ -1,8 +1,49 @@
-/* --text: #120e0c;
---background: #ece6e4;
---primary: #40302b;
---secondary: #e6dddb;
---accent: #372925; */
+:root { 
+  --text: #120e0c;
+  --background: #ece6e4;
+  --primary: #40302b;
+  --secondary: #e6dddb;
+  --accent: #372925; 
+
+  --text-header: calc(2rem + 6vh);
+  --text-headline: calc(1.5rem + 4vh);
+  --text-para: calc(1rem + 2vh);
+}
+
+@font-face {
+  font-family: 'Alice';
+  src: url('../fonts/Alice-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Cinzel';
+  src: url('../fonts/Cinzel-Regular.otf');
+}
+
+@font-face {
+  font-family: 'CinzelDeco';
+  src: url('../fonts/CinzelDecorative-Regular.otf');
+}
+
+@font-face {
+  font-family: 'Country';
+  src: url('../fonts/Country.otf'), url('../fonts/Country.ttf');
+}
+
+@font-face {
+  font-family: 'NixieOne';
+  src: url('../fonts/NixieOne.ttf');
+}
+
+@font-face {
+  font-family: 'PTSans';
+  src: url('../fonts/PTSans-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../fonts/Nunito-Medium.ttf');
+}
 
 .App {
   height: 100vh;

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import style from '../../style/intro_modules/Intro.module.css'
 
-import Sleep from '../Sleep.js'
+import Sleep from '../../utils/Sleep.js'
 import Header from './Header.js'
 import Scene from './Scene.js'
 import Footer from './Footer'
@@ -13,7 +13,7 @@ function Intro(props) {
 
   const onClick = async(action) => {
     await setClicked(action);
-    await Sleep(3000);
+    await Sleep(500);
     await props.startTour(action);
   }
 
@@ -26,7 +26,6 @@ function Intro(props) {
       <Header onClick={onClick}/>
       <SideBar />
       <Footer />
-      
 
       <div className={`${clicked?style.transition:style.disable}`}>
       </div>

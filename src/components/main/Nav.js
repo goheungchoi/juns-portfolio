@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 
-import Sleep from '../Sleep.js'
+import Sleep from '../../utils/Sleep.js'
 
 import Style from '../../style/main_modules/Nav.module.css'
 
@@ -51,7 +51,7 @@ function Nav(props) {
    * @returns 
    */
   const selectNavItem = async(i) => {
-    console.log(i);             // Debugging purpose.
+    //console.log(i);             // Debugging purpose.
     if (index === i) return;    // No animation when curr index == selected index.
 
     await initiateClassNames(i);    // Designates appropriate CSS states and move the underline of the curr item.
@@ -61,9 +61,19 @@ function Nav(props) {
     await props.notifyItemChange(i);// Notifies to the parent component, `Main`.
   }
 
-  // useEffect(() => {
-  //   refs[index].current.className = Style.Nav_underline;
-  // }, [index])
+  const updateNavItem = async(i) => {
+    //console.log(i);             // Debugging purpose.
+    if (index === i) return;    // No animation when curr index == selected index.
+
+    await initiateClassNames(i);    // Designates appropriate CSS states and move the underline of the curr item.
+    await Sleep(50);                // Sleeps shortly for the smooth animation of the selected item.
+    await finalizeClassNames(i);    // Moves the underlines of the selected item.
+    await setIndex(i);              // Sets the state of `index`.
+  }
+
+  useEffect(() => {
+    updateNavItem(props.nav);
+  }, [props.nav])
 
   return (
     <div className={Style.Body}>

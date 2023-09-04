@@ -1,18 +1,3 @@
-@font-face {
-  font-family: 'Alice';
-  src: url('../../fonts/Alice-Regular.ttf');
-}
-
-@font-face {
-  font-family: 'Cinzel';
-  src: url('../../fonts/Cinzel-Regular.otf');
-}
-
-@font-face {
-  font-family: 'CinzelDeco';
-  src: url('../../fonts/CinzelDecorative-Regular.otf');
-}
-
 .Header {
   display: flex;
   flex-direction: column;
@@ -66,7 +51,7 @@
 }
 
 .Hover {
-  padding-left: 5rem;
+  padding-left: 2rem;
   transition: all 1000ms ease;
 }
 

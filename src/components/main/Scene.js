@@ -9,33 +9,47 @@ import { SheetProvider, useCurrentSheet, PerspectiveCamera } from '@theatre/r3f'
 
 const demoSheet = getProject('Demo Project', {state: flyThroughCamera}).sheet('Demo Sheet');
 
-const playheadIntervals = {
-  home: [0, 0],
-  about: [0, 1],
-  work: [1, 2],
-  contact: [2, 3],
-}
+const playheadIntervals = [[0, 0], [0, 1], [1, 2], [2, 3]]
 
-function Meshes() {
+function Meshes({nav}) {
+  const [currentNav, setCurrentNav] = useState(0);
+  const [interval, setInterval] = useState([0, 0]);
+  const [playheadSpeed, setPlayheadSpeed] = useState(0.01);
   const sheet = useCurrentSheet();
 
   const disc = useLoader(TextureLoader, 'disc.png');
   const pointsRef = useRef(null);
   const meshRef = useRef(null);
+  const boxRef = useRef(null);
 
   useFrame(({ clock, camera }) => {
     if (!pointsRef || !meshRef) return;
     meshRef.current.rotation.y = -clock.getElapsedTime()/100;
     pointsRef.current.rotation.y = -clock.getElapsedTime()/100;
+    boxRef.current.rotation.z = +clock.getElapsedTime()/5;
 
     meshRef.current.rotation.x = clock.getElapsedTime()/500;
     pointsRef.current.rotation.x = clock.getElapsedTime()/500;
+    boxRef.current.rotation.x = +clock.getElapsedTime()/5;
 
-    if (sheet.sequence.position < 3) {
-      sheet.sequence.position += 0.01;
-    }
-    console.log(sheet.sequence.position);
+    const shouldMoveForward = (0 < playheadSpeed) && (sheet.sequence.position < nav);
+    const shouldMoveBackward = (playheadSpeed < 0) && (sheet.sequence.position > nav);
+    sheet.sequence.position += (playheadSpeed * (shouldMoveForward || shouldMoveBackward));
+    // console.log('nav', nav);
+    // console.log('playheadSpeed', playheadSpeed);
+    // console.log('shouldMoveForward', shouldMoveForward);
+    // console.log('shouldMoveBackward', shouldMoveBackward);
+    // console.log('sheet position', sheet.sequence.position);
   });
+
+  useEffect(()=> {
+    if (currentNav !== nav) {
+      const speed = (nav - currentNav)/50;
+      setPlayheadSpeed(speed);
+      console.log(speed);
+      setCurrentNav(nav);
+    }
+  }, [nav]);
 
   return (
     <>
@@ -65,22 +79,21 @@ function Meshes() {
       </mesh>
 
       <mesh 
-        position={[-50, 20, 0]}
+        ref={boxRef}
+        position={[20, -5, 10]}
       >
         <boxGeometry 
-          args={[10, 10, 10]}
+          args={[2, 2, 2]}
         />
         <meshStandardMaterial 
           color='hotpink'
         />
       </mesh>
     </>
-      
-      
   )
 }
 
-function BackgroundScene() {
+function BackgroundScene({nav}) {
   
   return (
     <Canvas>
@@ -98,7 +111,7 @@ function BackgroundScene() {
         <pointLight position={[-50, 0, -30]} />
         <ambientLight color={'white'} />
         <color attach="background" args={["#ECE6E4"]} />
-        <Meshes />
+        <Meshes nav={nav}/>
       </ SheetProvider>
     </Canvas>
   )

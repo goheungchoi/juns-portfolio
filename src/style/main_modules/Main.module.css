@@ -1,3 +1,4 @@
+
 .inactive {
   display: none;
 }
@@ -27,7 +28,7 @@
   width: 100vw;
   height: 100vh;
 
-  animation: opening 3s ease-in;
+  animation: opening 1s ease-in;
 }
 
 @keyframes opening {
@@ -40,6 +41,32 @@
 }
 
 .Content {
+  position: absolute;
+  box-sizing: border-box;
+
   width: 100%;
-  height: 80vh;
+  height: auto;
+
+  margin-top: var(--container-margin-vertical);
+  margin-bottom: var(--container-margin-vertical);
+}
+
+.Content .fixed__up {
+  position: absolute;
+  top: calc(-1*var(--container-margin-vertical));
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.Content .fixed__down {
+  position: absolute;
+  bottom: calc(-1*var(--container-margin-vertical));
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.Content .button {
+  cursor: pointer;
+  font-size: 45px;
+  color: var(--text);
 }
