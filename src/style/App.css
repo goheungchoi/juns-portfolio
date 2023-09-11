@@ -5,9 +5,9 @@
   --secondary: #e6dddb;
   --accent: #372925; 
 
-  --text-header: calc(2rem + 6vh);
-  --text-headline: calc(1.5rem + 4vh);
-  --text-para: calc(1rem + 2vh);
+  --text-header: calc(2rem + 6vmin);
+  --text-headline: calc(1.5rem + 4vmin);
+  --text-para: calc(1rem + 2vmin);
 }
 
 @font-face {
@@ -56,4 +56,17 @@
 canvas {
   height: 100vh;
   width: 100vw;
+}
+
+.svg-icon {
+  overflow: visible;
+  width: 48px;
+  height: 48px;
+  vertical-align: -0.125em;
+}
+
+.svg-icon-banner {
+  overflow: visible;
+  height: 32px;
+  vertical-align: -0.125em;
 }

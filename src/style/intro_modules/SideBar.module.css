@@ -18,6 +18,8 @@
 
 .SideBar a {
   color: aliceblue;
+  
+  margin-bottom: 0.1rem;
 }
 
 .SideBar div {
@@ -25,9 +27,5 @@
   width: 0.9em;
   height: 5em;
 
-  margin-bottom: 0.8rem;
-}
-
-.SideBar > svg {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.2rem;
 }

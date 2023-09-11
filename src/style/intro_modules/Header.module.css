@@ -1,16 +1,61 @@
+:root {
+  --header-margin-left: 10rem;
+  --header-padding-horizontal: 4rem;
+}
+
+/* 1408x1056 */
+@media screen and (max-width: 1408px) {
+  :root {
+    --header-margin-left: 10rem;
+    --header-padding-horizontal: 4rem;
+  }
+}
+
+/* 1216x852 */
+@media screen and (max-width: 1216px) {
+  :root {
+    --header-margin-left: 9rem;
+    --header-padding-horizontal: 3.5rem;
+  }
+}
+
+/* 1024x600 */
+@media screen and (max-width: 1024px) {
+  :root {
+    --header-margin-left: 8rem;
+    --header-padding-horizontal: 3rem;
+  }
+}
+
+/* 768x480 */
+@media screen and (max-width: 768px), print {
+  :root {
+    --header-margin-left: 6rem;
+    --header-padding-horizontal: 2rem;
+  }
+}
+
+/* 768x480 */
+@media screen and (max-width: 412px), print {
+  :root {
+    --header-margin-left: 2rem;
+    --header-padding-horizontal: 1rem;
+  }
+}
+
 .Header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 
-  width: 100%;
+  width: calc(100% - var(--header-margin-left));
   height: 100%;
 
-  margin-left: calc(2em + 5vw);
-  padding-left: 2em;
-  padding-right: 2em;
-
+  margin-left: var(--header-margin-left);
+  padding-left: var(--header-padding-horizontal);
+  padding-right: var(--header-padding-horizontal);
+  
   border-left: 1em solid #ece6e4;
 
   color: aliceblue;
