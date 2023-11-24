@@ -1,0 +1,39 @@
+.detail_section h1 {
+  font-size: 2rem;
+}
+
+.detail_section h2 {
+  font-size: 1.5rem;
+}
+
+.detail_section {
+  font-size: 1.2rem;
+}
+
+.detail_section a {
+  text-decoration: none;
+}
+
+.detail_section a:link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.detail_section a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.detail_section a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.detail_section a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.detail_section p {
+  text-indent: 1rem;
+}

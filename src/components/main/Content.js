@@ -146,7 +146,7 @@ function About() {
   /* Row boxes open or close */
   const [states, setStates] = useState([false, false, false]);
   function handleEachClick(index) {
-    setStates(states.map((v, i)=>(i===index ? !v : v)))
+    setStates(states.map((_, i)=>(i===index ? true : false)))
   }
 
   /* Skill div expand */
@@ -404,7 +404,7 @@ function About() {
 
             <h3>OS</h3>
             <div>
-              <spen>Windows</spen> <span>Linux</span>
+              <span>Windows</span> <span>Linux</span>
             </div>
           </div>
         </div>
@@ -416,16 +416,16 @@ function About() {
 /** Work Component */
 function Work() {
   const gridCells = [
-    layout.grid_item_a,
-    layout.grid_item_b,
-    layout.grid_item_c,
-    layout.grid_item_d,
-    layout.grid_item_e,
-    layout.grid_item_f,
-    layout.grid_item_g,
-    layout.grid_item_h,
-    layout.grid_item_i,
-    layout.grid_item_j,
+    layout.grid_item_normal,
+    layout.grid_item_normal,
+    layout.grid_item_normal,
+    layout.grid_item_normal,
+    layout.grid_item_normal,
+    layout.grid_item_normal,
+    layout.grid_item_normal,
+    layout.grid_item_normal,
+    layout.grid_item_vertical_long,
+    layout.grid_item_vertical_long,
   ];
 
   const projects = [
@@ -445,9 +445,9 @@ function Work() {
 
     function setMessage(list) {
       return (
-        list.map((v)=>{
+        list.map((v, i)=>{
           return(
-            <div className={layout.tag}>
+            <div key={i} className={layout.tag}>
               {v}
             </div>
           )
@@ -537,6 +537,7 @@ function Work() {
         {projects.map((v, i) => {
           return (
             <Card 
+              key={i}
               gridPos={gridCells[i]}
               project={v}
             />
