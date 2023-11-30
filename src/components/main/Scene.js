@@ -24,13 +24,14 @@ function Meshes({nav}) {
 
   useFrame(({ clock, camera }) => {
     if (!pointsRef || !meshRef) return;
-    meshRef.current.rotation.y = -clock.getElapsedTime()/100;
-    pointsRef.current.rotation.y = -clock.getElapsedTime()/100;
-    boxRef.current.rotation.z = +clock.getElapsedTime()/5;
+    const elaspedTime = clock.getElapsedTime();
+    meshRef.current.rotation.y = -elaspedTime/100;
+    pointsRef.current.rotation.y = -elaspedTime/100;
+    boxRef.current.rotation.z = +elaspedTime/5;
 
-    meshRef.current.rotation.x = clock.getElapsedTime()/500;
-    pointsRef.current.rotation.x = clock.getElapsedTime()/500;
-    boxRef.current.rotation.x = +clock.getElapsedTime()/5;
+    meshRef.current.rotation.x = elaspedTime/500;
+    pointsRef.current.rotation.x = elaspedTime/500;
+    boxRef.current.rotation.x = +elaspedTime/5;
 
     const shouldMoveForward = (0 < playheadSpeed) && (sheet.sequence.position < nav);
     const shouldMoveBackward = (playheadSpeed < 0) && (sheet.sequence.position > nav);
@@ -94,7 +95,7 @@ function Meshes({nav}) {
 }
 
 function BackgroundScene({nav}) {
-  
+  console.log("background rendered.");
   return (
     <Canvas>
       <SheetProvider sheet={demoSheet}>

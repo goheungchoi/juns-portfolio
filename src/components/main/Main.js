@@ -64,7 +64,6 @@ class Main extends React.Component {
         {/* Navbar */}
         <Nav nav={nav} notifyItemChange={this.changeNavIndex}/>
 
-
         {/* Background container */}
         <div className={Style.Background}>
           <BackgroundScene nav={nav}/>

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import sleep from '../../utils/Sleep'
 import Dialog from './Dialog'
+import InnerSlides from './sub/InnerSlides'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedin, faDiscord } from '@fortawesome/free-brands-svg-icons'
@@ -143,18 +144,7 @@ function Main() {
 
 /** About Component */
 function About() {
-  /* Row boxes open or close */
-  const [states, setStates] = useState([false, false, false]);
-  function handleEachClick(index) {
-    setStates(states.map((_, i)=>(i===index ? true : false)))
-  }
-
-  /* Skill div expand */
-  const [expanded, setExpanded] = useState(false);
-  function handleExpandButtonClick() {
-    setExpanded(!expanded);
-  }
-
+  
   function SkillBar({ icon, color, proficiency }) {
     /* beginner basic intermediate advanced expert */
     const NUM_LEVELS = 5;
@@ -200,9 +190,40 @@ function About() {
     )
   }
 
-  return (
-    <section className={style.column_box}>
-      <div className={`${style.column} ${style.color_background}`} >
+  function AboutMe() {
+    return (
+      <div className={`${style.flex_column} ${style.full_size}`}>
+        <div className={`${style.headline} ${style.font__PTSans}`} >
+          AboutMe
+          <div className={`${style.bar}`}></div>
+        </div>
+
+        {/* TODO: Add a profile div */}
+        {/* <div className={`${style.profile}`}>
+
+        </div> */}
+
+        <div className={`${style.info} ${style.font__PTSans}`}>
+          UMN '23 
+        </div>
+        <div className={`${style.info} ${style.font__PTSans}`}>
+          B.S. Comp Sci Major
+        </div>
+        
+        {/* TODO: Add a timeline */}
+
+      </div>
+    )
+  }
+
+  function Expertise() {
+    /* Row boxes open or close */
+    const [states, setStates] = useState([false, false, false]);
+    function handleEachClick(index) {
+      setStates(states.map((_, i)=>(i===index ? true : false)))
+    }
+    return (
+      <div className={`${style.flex_column} ${style.full_size}`}>
         <div className={`${style.headline} ${style.font__PTSans}`} >
           Expertise
           <div className={`${style.bar}`}></div>
@@ -278,32 +299,12 @@ function About() {
           </div>}
         </div>
       </div>
+    )
+  }
 
-      <div className={`${style.column}`} >
-        {/* <div className={`${style.headline} ${style.font__PTSans}`} >
-          Div 2
-        </div> */}
-      </div>
-
-      <div
-        className={`
-          ${style.card_box}
-          ${expanded ? style.card_box__active : style.card_box__inactive}
-        `}
-      >
-        <div 
-          className={`
-            ${style.expand_btn}
-          `}
-          onClick={()=>handleExpandButtonClick()}
-        >
-          {
-            expanded ? 
-            <FontAwesomeIcon icon={faChevronLeft} /> :
-            <FontAwesomeIcon icon={faChevronRight} />
-          }
-        </div>
-
+  function Skills() {
+    return (
+      <>
         <div className={style.grid_container} >
           <div className={`
             ${style.grid_header}
@@ -408,6 +409,18 @@ function About() {
             </div>
           </div>
         </div>
+      </>
+    )
+  }
+
+  return (
+    <section className={style.column_box}>
+      <div className={`${style.column}`} >
+        <InnerSlides>
+          <AboutMe />
+          <Expertise />
+          <Skills />
+        </InnerSlides>
       </div>
     </section>
   )

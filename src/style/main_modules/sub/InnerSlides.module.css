@@ -1,0 +1,47 @@
+.container {
+  position: relative;
+  display: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.body {
+  position: relative;
+  display: inherit;
+  overflow: hidden;
+
+  width: 100%;
+  height: 100%;
+}
+
+.slide_active {
+  display: inherit;
+  position: absolute;
+  box-sizing: border-box;
+
+  width: 100%;
+  height: 100%;
+}
+
+.slide_inactive {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.slide_in__from_left,
+.slide_out__to_left {
+  left: -100%;
+  transition: all 0.5s ease-in;
+}
+
+.slide_in__from_right,
+.slide_out__to_right {
+  left: 100%;
+  transition: all 0.5s ease-in;
+}
+
+.slide_in__done {
+  left: 0%;
+  transition: all 0.5s ease-in;
+}
