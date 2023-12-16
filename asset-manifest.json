@@ -1,0 +1,43 @@
+{
+  "files": {
+    "main.css": "/juns-portfolio/static/css/main.db3b6dda.css",
+    "main.js": "/juns-portfolio/static/js/main.ea156c1f.js",
+    "static/js/787.1ed0c42c.chunk.js": "/juns-portfolio/static/js/787.1ed0c42c.chunk.js",
+    "static/media/agent_navigation.mp4": "/juns-portfolio/static/media/agent_navigation.39be08e4fb74d20434ae.mp4",
+    "static/media/stationary_agents_collisions.gif": "/juns-portfolio/static/media/stationary_agents_collisions.7b2e104381746e452082.gif",
+    "static/media/ttc_force.gif": "/juns-portfolio/static/media/ttc_force.133a8a5d2a208da019ce.gif",
+    "static/media/top_20_movies_screenshot.png": "/juns-portfolio/static/media/top_20_movies_screenshot.95e00b0b0e429493ff29.png",
+    "static/media/cloth_simulation_screenshot.png": "/juns-portfolio/static/media/cloth_simulation_screenshot.7bbadc18adb3f048ee90.png",
+    "static/media/graph_game_screenshot.png": "/juns-portfolio/static/media/graph_game_screenshot.eb5bc208a405822114aa.png",
+    "static/media/Graph_Game_UML.png": "/juns-portfolio/static/media/Graph_Game_UML.ecaf95613b9260dc19bd.png",
+    "static/media/cartoon_pic.png": "/juns-portfolio/static/media/cartoon_pic.eec4dfabfcd33341268b.png",
+    "static/media/PTSans-Regular.ttf": "/juns-portfolio/static/media/PTSans-Regular.77e92507394e2309d837.ttf",
+    "static/media/pft_screenshot.png": "/juns-portfolio/static/media/pft_screenshot.b73cc5f65cfa41b26bb2.png",
+    "static/media/Nunito-Medium.ttf": "/juns-portfolio/static/media/Nunito-Medium.a7c01ee77faba77e24c1.ttf",
+    "static/media/Alice-Regular.ttf": "/juns-portfolio/static/media/Alice-Regular.6676c30016104188a3ec.ttf",
+    "static/media/CUDA_logo.png": "/juns-portfolio/static/media/CUDA_logo.1ae215d1ee087e87a6db.png",
+    "static/media/refraction.png": "/juns-portfolio/static/media/refraction.362bc0627674bad6b658.png",
+    "static/media/Country.otf": "/juns-portfolio/static/media/Country.a0e4a860e73d1944b6de.otf",
+    "static/media/cuda_screenshot.png": "/juns-portfolio/static/media/cuda_screenshot.a31e10d508d7d7c1bacd.png",
+    "static/media/NixieOne.ttf": "/juns-portfolio/static/media/NixieOne.3c0d9ebb564d5026da7b.ttf",
+    "static/media/Cinzel-Regular.otf": "/juns-portfolio/static/media/Cinzel-Regular.f91baf6fe825a2549798.otf",
+    "static/media/CinzelDecorative-Regular.otf": "/juns-portfolio/static/media/CinzelDecorative-Regular.ad419c1147c3c6979037.otf",
+    "static/media/resume_summer23.pdf": "/juns-portfolio/static/media/resume_summer23.409203dc767f28f7343b.pdf",
+    "static/media/path_planning_crowd_simulation_screenshot.png": "/juns-portfolio/static/media/path_planning_crowd_simulation_screenshot.97527326f4e0e8327da9.png",
+    "static/media/ik_simulation_screenshot.png": "/juns-portfolio/static/media/ik_simulation_screenshot.85b63a1301d662e54952.png",
+    "static/media/Country.ttf": "/juns-portfolio/static/media/Country.53e829e9ba1bf1b6c7f9.ttf",
+    "static/media/python-logo-only.png": "/juns-portfolio/static/media/python-logo-only.632369df831d16241b59.png",
+    "static/media/OpenMP_logo.png": "/juns-portfolio/static/media/OpenMP_logo.e6e02746b7946fae7f8c.png",
+    "static/media/FABRIK.zip": "/juns-portfolio/static/media/FABRIK.934b9ec37e7aaa4cba12.zip",
+    "static/media/JacobianIK.zip": "/juns-portfolio/static/media/JacobianIK.df3d0172d00bdf2214c9.zip",
+    "static/media/JavaScript-logo.png": "/juns-portfolio/static/media/JavaScript-logo.266bd9fb2663dcc057b4.png",
+    "index.html": "/juns-portfolio/index.html",
+    "main.db3b6dda.css.map": "/juns-portfolio/static/css/main.db3b6dda.css.map",
+    "main.ea156c1f.js.map": "/juns-portfolio/static/js/main.ea156c1f.js.map",
+    "787.1ed0c42c.chunk.js.map": "/juns-portfolio/static/js/787.1ed0c42c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db3b6dda.css",
+    "static/js/main.ea156c1f.js"
+  ]
+}
