@@ -1,19 +1,18 @@
 import { Canvas, useLoader, useFrame } from '@react-three/fiber'
 import { useState, useEffect, useRef } from 'react'
-import { motion, MotionConfig } from "framer-motion-3d"
 import { TextureLoader } from 'three'
 import flyThroughCamera from '../../data/Demo Project.theatre-project-state.json'
 
-import { editable as e, getProject, val } from '@theatre/core'
+import { editable as getProject } from '@theatre/core'
 import { SheetProvider, useCurrentSheet, PerspectiveCamera } from '@theatre/r3f'
 
 const demoSheet = getProject('Demo Project', {state: flyThroughCamera}).sheet('Demo Sheet');
 
-const playheadIntervals = [[0, 0], [0, 1], [1, 2], [2, 3]]
+// const playheadIntervals = [[0, 0], [0, 1], [1, 2], [2, 3]]
 
 function Meshes({nav}) {
   const [currentNav, setCurrentNav] = useState(0);
-  const [interval, setInterval] = useState([0, 0]);
+  // const [interval, setInterval] = useState([0, 0]);
   const [playheadSpeed, setPlayheadSpeed] = useState(0.01);
   const sheet = useCurrentSheet();
 

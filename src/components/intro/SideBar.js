@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import style from '../../style/intro_modules/SideBar.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import CodeSandboxLogo from '../../data/code-sandbox-logo'

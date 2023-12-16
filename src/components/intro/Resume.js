@@ -1,26 +1,21 @@
-import style from '../../style/intro_modules/Resume.module.css'
+import style from "../../style/intro_modules/Resume.module.css";
 
-import resume from '../../data/resume_summer23.pdf'
+import resume from "../../data/resume_summer23.pdf";
 
-function Resume(props) {
+function Resume() {
   return (
-    <div 
-      className={`${style.Resume}`}
-    >
-      <a 
-      href={resume} 
+    <a
+      href={resume}
+      rel="noreferrer"
       target="_blank"
       style={{
         textDecoration: "none",
         color: "inherit",
       }}
-      >
-        <div role='button'>
-          Résumé
-        </div>
-      </a>
-    </div>
-  )
+    >
+      <div className={`${style.Resume}`}>Résumé</div>
+    </a>
+  );
 }
 
 export default Resume;

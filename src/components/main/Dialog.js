@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 
-import sleep from "../../utils/Sleep";
 import style from "../../style/main_modules/Dialog.module.css"
 
 function Dialog({

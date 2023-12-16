@@ -471,7 +471,6 @@ export default function Scene() {
   return (
     <>
       <canvas ref={canvasRef}>
-
       </canvas>
     </>
   )

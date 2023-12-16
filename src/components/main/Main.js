@@ -53,8 +53,7 @@ class Main extends React.Component {
   }
 
   render() {
-    const {} = this.props;
-    const { contentTrig, open, nav } = this.state;
+    const {  open, nav } = this.state;
     return (
       <div className={Style.Body}>
 

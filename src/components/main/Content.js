@@ -12,10 +12,6 @@ import {
   faDiscord,
 } from "@fortawesome/free-brands-svg-icons";
 import {
-  faChevronRight,
-  faChevronLeft,
-} from "@fortawesome/free-solid-svg-icons";
-import {
   ISOCPPLogo,
   JavaLogo,
   PythonLogo,
@@ -524,10 +520,10 @@ function About() {
 
 /** Work Component */
 function Work() {
-  const gridCellPositions = [
-    layout.grid_item_normal,
-    layout.grid_item_vertical_long,
-  ];
+  // const gridCellPositions = [
+  //   layout.grid_item_normal,
+  //   layout.grid_item_vertical_long,
+  // ];
 
   const projects = [
     projectData.alcove,

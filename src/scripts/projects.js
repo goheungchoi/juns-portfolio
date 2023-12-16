@@ -66,6 +66,7 @@ const projectData = {
     title: "PROJECT: Alcove",
     thumbnail: (
       <img
+        src={null}
         alt="In Progress"
       />
     ),
@@ -89,6 +90,7 @@ const projectData = {
     title: "Unreal Projects",
     thumbnail: (
       <img
+        src={null}
         alt="No Image"
       />
     ),
@@ -1147,12 +1149,25 @@ ApplyDynamicConstraints(id, dt, currPos, nextPos):
     ],
     detail: (
       <>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac
-        scelerisque nunc, in pretium metus. Duis suscipit aliquet odio, ut
-        lobortis turpis porttitor ac. Praesent dapibus mi eget neque eleifend
-        volutpat. Donec id nisi sapien. Nullam ut interdum tellus. In semper
-        pulvinar elit et dictum. Phasellus efficitur in ex eget lobortis. Ut
-        eget massa suscipit, bibendum tellus nec, placerat nibh.
+        <section className={style.detail_section}>
+          <ul>
+            <li>
+              This was a school project. The Source code can't be provided.
+            </li>
+          </ul>
+        </section>
+
+        <section className={style.detail_section}>
+           <h1>K-means Clustering</h1>
+           <h2>Headline</h2>
+           <p>Context</p>
+         </section>
+
+         <section className={style.detail_section}>
+           <h1>Parallel Programming</h1>
+           <h2>Headline</h2>
+           <p>Context</p>
+         </section>
       </>
     ),
   },
@@ -1537,7 +1552,7 @@ ApplyDynamicConstraints(id, dt, currPos, nextPos):
         }}
       />
     ),
-    github: null,
+    github: "https://github.com/goheungchoi/raytracer",
     description:
       "A 3D rendering program to generate photorealistic 3D images using the Bling-Phong illustration and recursive raytracing",
     skills: [
@@ -1549,12 +1564,22 @@ ApplyDynamicConstraints(id, dt, currPos, nextPos):
     ],
     detail: (
       <>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac
-        scelerisque nunc, in pretium metus. Duis suscipit aliquet odio, ut
-        lobortis turpis porttitor ac. Praesent dapibus mi eget neque eleifend
-        volutpat. Donec id nisi sapien. Nullam ut interdum tellus. In semper
-        pulvinar elit et dictum. Phasellus efficitur in ex eget lobortis. Ut
-        eget massa suscipit, bibendum tellus nec, placerat nibh.
+        <section className={style.detail_section}>
+          <ul>
+            <li>
+              Go to the Source Code&nbsp;
+              <a href="https://github.com/goheungchoi/raytracer">
+                <FontAwesomeIcon icon={faLink} />
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section className={style.detail_section}>
+           <h1>Ray Tracing</h1>
+           <h2>Headline</h2>
+           <p>Context</p>
+         </section>
       </>
     ),
   },
@@ -1573,18 +1598,22 @@ ApplyDynamicConstraints(id, dt, currPos, nextPos):
         }}
       />
     ),
-    github: null,
+    github: "https://github.com/goheungchoi/top-20-movies",
     description:
       "An interactive website showcasing the top 20 movies sourced from TMDB API with diverse visual effects",
     skills: ["ReactJS", "HTML/CSS"],
     detail: (
       <>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac
-        scelerisque nunc, in pretium metus. Duis suscipit aliquet odio, ut
-        lobortis turpis porttitor ac. Praesent dapibus mi eget neque eleifend
-        volutpat. Donec id nisi sapien. Nullam ut interdum tellus. In semper
-        pulvinar elit et dictum. Phasellus efficitur in ex eget lobortis. Ut
-        eget massa suscipit, bibendum tellus nec, placerat nibh.
+        <section className={style.detail_section}>
+          <ul>
+            <li>
+              Go to the Source Code&nbsp;
+              <a href="https://github.com/goheungchoi/top-20-movies">
+                <FontAwesomeIcon icon={faLink} />
+              </a>
+            </li>
+          </ul>
+        </section>
       </>
     ),
   },

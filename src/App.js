@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import './style/App.css'
 import Home from './routes/Home.js'
 
