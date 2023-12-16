@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react'
 import { TextureLoader } from 'three'
 import flyThroughCamera from '../../data/Demo Project.theatre-project-state.json'
 
-import { editable as getProject } from '@theatre/core'
+import { editable as e, getProject, val } from '@theatre/core'
 import { SheetProvider, useCurrentSheet, PerspectiveCamera } from '@theatre/r3f'
 
 const demoSheet = getProject('Demo Project', {state: flyThroughCamera}).sheet('Demo Sheet');
