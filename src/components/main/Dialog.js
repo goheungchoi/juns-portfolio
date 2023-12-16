@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useRef, useEffect } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faX } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,16 +13,38 @@ function Dialog({
   height,
   onCloseButtonClick,
 }) {
+  const [visible, setVisible] = useState(false);
+  const dialogDiv = useRef(null);
+
+  function toggleVisible() {
+    const scrolled = dialogDiv.current.scrollTop; 
+    if (scrolled > 200) {
+      setVisible(true)
+    } else {
+      setVisible(false);
+    }
+  };
+
+  function onGoUpButtonClick() {
+    dialogDiv.current.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  };
 
   useEffect(()=>{
-
+    
     return ()=>{
       // unmount
     };
-  }, [])
+  }, []);
 
   return (
-    <div className={style.dialog}>
+    <div 
+      ref={dialogDiv} 
+      className={style.dialog}
+      onScroll={toggleVisible}
+    >
       <div className={style.window}
         style={{
           width: width,
@@ -47,6 +69,14 @@ function Dialog({
         <div className={style.detail}>
           {detail}
         </div>
+      </div>
+
+      <div 
+        role="button"
+        className={`${style.goUpButton} ${visible ? style.goUpButton__show : null}`}
+        onClick={onGoUpButtonClick}
+      >
+        Go Top
       </div>
     </div>
   )

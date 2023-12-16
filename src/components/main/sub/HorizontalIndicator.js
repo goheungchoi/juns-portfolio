@@ -44,7 +44,7 @@ function HorizontalIndicator({ total, index, notify }) {
   return (
     <div className={style.body}>
       <div
-        className={`button ${style.larrow}`}
+        className={`${style.arrow}`}
         onClick={() => increaseIndexBy(-1)}
       >
         <FontAwesomeIcon icon={faChevronLeft} size="sm" />
@@ -53,7 +53,7 @@ function HorizontalIndicator({ total, index, notify }) {
       {dots}
 
       <div
-        className={`button ${style.rarrow}`}
+        className={`${style.arrow}`}
         onClick={() => increaseIndexBy(1)}
       >
         <FontAwesomeIcon icon={faChevronRight} size="sm" />

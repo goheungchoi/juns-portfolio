@@ -44,6 +44,33 @@
   font-size: 2rem;
 }
 
+.goUpButton {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  bottom: 2rem;
+  left: 85%;
+  border: none;
+  outline: none;
+
+  background-color: #0D0D0D;
+  color: #fffdd0;
+  
+  cursor: pointer;
+  padding: 16px 24px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.goUpButton__show {
+  display: block;
+}
+
+.goUpButton:hover {
+  background-color: #3b3c36;
+}
+
 .title {
   color: var(--background);
   

@@ -1,6 +1,6 @@
 :root {
   font-size: 1em;
-  --body-padding-horizontal: 3rem;
+  --body-padding-horizontal: 6rem;
   --container-margin-vertical: 3rem;
   --row-margin-vertical: 1rem;
 }
@@ -10,33 +10,42 @@
   :root {
     font-size: 1em;
     --body-padding-horizontal: 6rem;
-    --container-margin-vertical: 6rem;
+    --container-margin-vertical: 3rem;
   }
 }
 
 /* 1216x852 */
 @media screen and (max-width: 1216px) {
   :root {
-    font-size: 0.8em;
+    font-size: 1em;
     --body-padding-horizontal: 6rem;
-    --container-margin-vertical: 6rem;
+    --container-margin-vertical: 3rem;
   }
 }
 
 /* 1024x600 */
 @media screen and (max-width: 1024px) {
   :root {
-    font-size: 0.6em;
+    font-size: 1em;
     --body-padding-horizontal: 6rem;
-    --container-margin-vertical: 6rem;
+    --container-margin-vertical: 3rem;
+  }
+}
+
+/* half screen */
+@media screen and (max-width: 958px) {
+  :root {
+    font-size: 0.8em;
+    --body-padding-horizontal: 6rem;
+    --container-margin-vertical: 3rem;
   }
 }
 
 /* 768x480 */
 @media screen and (max-width: 768px), print {
   :root {
-    font-size: 0.5em;
-    --body-padding-horizontal: 3rem;
+    font-size: 0.8em;
+    --body-padding-horizontal: 6rem;
     --container-margin-vertical: 3rem;
   }
 }
@@ -51,6 +60,7 @@
   margin-right: var(--body-padding-horizontal);
 
   width: calc(100% - 2*var(--body-padding-horizontal));
+  min-height: 645px;
   height: 75vh;
 }
 
@@ -101,7 +111,7 @@
 .column {
   display: flex;
   flex-direction: column;
-  width: 624px;
+  width: 632px;
   height: auto;
   padding: 2rem;
 }
@@ -135,7 +145,7 @@
   height: 20rem;
 
   color: black;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.5);
   border: 0.3rem solid var(--accent);
   transition: all 0.3s ease-in;
 }
@@ -280,9 +290,12 @@
 .row > .main {
   width: 100%;
   height: auto;
-  padding: 0.5rem;
-  font-size: 1.115rem;
+  padding: 1rem;
+  text-align: justify !important;
 
+  font-size: 16px;
+  font-weight: bold;
+  
   transition: all 0.3s ease-in;
 }
 
@@ -421,4 +434,169 @@
 .slide_in__done {
   top: 0%;
   transition: all 0.5s ease-in;
+}
+
+.profile {
+  display: flex;
+  align-items: flex-start;
+  
+  flex-shrink: 0;
+
+  background-color: var(--primary);
+  border-radius: 1.5rem;
+
+  padding: 1.5rem;
+}
+
+.brief_info {
+
+  width: 12em;
+}
+
+.profile_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  width: 154px;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 128px;
+}
+
+.profile_img > img {
+  height: 180px;
+}
+
+.contact_info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.contact_info a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  color: var(--background);
+  background-color: var(--text);
+  border-radius: 8px;
+
+  padding: 2px;
+  margin: 2rem 2.6px 0px 2.6px;
+}
+
+.profile > .introduction {
+  padding: 0rem 1rem;
+}
+
+.introduction > .name {
+  color: rgb(180, 180, 180);
+  font-size: var(--text-para);
+  font-weight: bold;
+}
+
+.introduction > .major {
+  color: rgb(100, 100, 100);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.introduction > .tell_about_myself {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: bold;
+  text-align: justify !important;
+}
+
+.timeline {
+  width: 100%;
+
+  overflow: scroll;
+}
+
+.milestone > .title {
+  color: rgb(50, 50, 50);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.milestone > .title > span {
+  color: var(--accent);
+  font-size: 16px;
+}
+
+.contact_section {
+  color: var(--text);
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contact_section a {
+  color: chocolate; 
+  padding: 0;
+  text-decoration: none;
+}
+
+.contact_section p {
+  margin: 0px;
+  padding-top: 1rem;
+
+  font-size: smaller;
+  color: rgb(5, 5, 5);
+}
+
+.email_form {
+  width: 100%;
+  height: auto;
+
+  display: grid;
+  gap: 0.2rem 0.4rem;
+  grid-template-rows: repeat(6, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.email_form input {
+  grid-row: span 1;
+  grid-column: span 2;
+}
+
+.email_form textarea {
+  grid-row: span 3;
+  grid-column: span 2;
+}
+
+.email_form * {
+  padding: 1rem;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+
+.email_form p {
+  align-self: flex-start;
+  justify-self: left;
+
+  padding: 0;
+  font-weight: bolder;
+  font-size: 12px;
+}
+
+.email_form button {
+  width: 200px;
+  
+  background-color: var(--primary);
+
+  border: none;
+  border-radius: 4px;
+
+  justify-self: right;
 }
