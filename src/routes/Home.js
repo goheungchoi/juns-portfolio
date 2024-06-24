@@ -19,18 +19,6 @@ class Home extends React.Component {
     this.setState({start: b});
   }
 
-  handleResize() {
-    
-  }
-
-  componentDidMount() {
-
-  }
-
-  componentDidUpdate() {
-
-  }
-
   render() {
     const { start } = this.state;
     return (

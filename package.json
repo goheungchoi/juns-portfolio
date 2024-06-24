@@ -1,6 +1,5 @@
 {
   "name": "portfolio",
-  "homepage": "https://goheungchoi.github.io/juns-portfolio",
   "version": "0.9.0",
   "private": true,
   "dependencies": {

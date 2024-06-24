@@ -1,3 +1,5 @@
+// Thumbnails
+import razanya_screenshot from "../data/razanya/razanya_entry.png";
 import pft_screenshot from "../data/pft_screenshot.png";
 import graph_game_screenshot from "../data/graph_game_screenshot.png";
 import cloth_simulation_screenshot from "../data/cloth_simulation_screenshot.png";
@@ -7,7 +9,13 @@ import path_planning_and_crowd_simulation from "../data/path_planning_crowd_simu
 import raytracing_screenshot from "../data/refraction.png";
 import top_20_movies_screenshot from "../data/top_20_movies_screenshot.png";
 
+// Graph Game UML Diagram
 import graph_game_uml from "../data/Graph_Game_UML.png";
+// Razanya UML Diagram
+import razanya_uml from "../data/razanya/Lazanya33_UML_Diagram.png"
+import razanya_bricks_uml from "../data/razanya/Lazanya33_Bricks_UML_Diagram.png"
+import razanya_irenderable_uml from "../data/razanya/Lazanya33_IRenderable_UML_Diagram.png"
+import razanya_iplayer_uml from "../data/razanya/Lazanya33_IPlayer_UML_Diagram.png"
 
 // Path Planning & Crowd Simulation
 import agent_navigation from "../data/crowd_simulation/agent_navigation.mp4";
@@ -19,16 +27,26 @@ import fabrik from "../data/FABRIK.zip";
 import jacobian from "../data/JacobianIK.zip";
 import crowd from "../data/JacobianIK.zip";
 
+// Razanya GridDeque examples
+import grid_deque_example1 from "../data/razanya/GridDequeExample1.png";
+import grid_deque_example2 from "../data/razanya/GridDequeExample2.png";
+import grid_deque_example3 from "../data/razanya/GridDequeExample3.png";
+import grid_deque_example4 from "../data/razanya/GridDequeExample4.png";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import hljs from "highlight.js/lib/core";
 import elm from "highlight.js/lib/languages/elm";
+import python from "highlight.js/lib/languages/python";
 import Highlight from "react-highlight";
+import "highlight.js/styles/github.css"; // Import a style. Choose the one you prefer.
+
 import { MathComponent } from "mathjax-react";
 
 import style from "../style/scripts/projects.module.css";
 import Image from "../components/Image";
 
+hljs.registerLanguage("python", python);
 hljs.registerLanguage("elm", elm);
 hljs.highlightAll();
 
@@ -62,21 +80,644 @@ hljs.highlightAll();
 }
 
 const projectData = {
-  alcove: {
-    title: "PROJECT: Alcove",
+  Razanya33: {
+    title: "Razanya33",
     thumbnail: (
       <img
-        src={null}
-        alt="In Progress"
+        src={razanya_screenshot}
+        alt="No Image"
+        style={{
+          position: "relative",
+          top: "0em",
+          left: "0em",
+          height: "16em",
+        }}
       />
     ),
     github: null,
     description:
-      "An game graphics engine powered by Vulcan with the state-of-the-art rendering technologies",
+      "A casual endless-dig game made with a light-weight custom-built game engine powered by GDI+ Win32 API.",
     skills: [
-      "Vulcan",
+      "Project Management",
+      "Game Development",
+      "Software Architecture",
+      "Algorithm",
       "C++",
     ],
+    detail: (
+      <>
+        <section className={style.detail_section}>
+          <ul>
+            <li>
+              Go to the Source Code&nbsp;
+              <a href="https://github.com/goheungchoi/Lazanya33">
+                <FontAwesomeIcon icon={faLink} />
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <section className={style.detail_section}>
+          <h1>Overview</h1>
+
+          <abbr>
+            Razanya33 is a casual time-limited endless digging game. In this
+            game, players take on the role of Razanya who wants to dig into the
+            Mooktinee mine as deeply as possible and explore underground while
+            avoiding detonating bombs. The deeper Razanya goes, the scarcer
+            oxygen gets, so players will need to go deeper as fast as they can
+            to secure more air or find the Wind stones in the mine. Also,
+            players should be aware that the tricky Gold stones are out there to
+            fool them.
+          </abbr>
+
+          <p>
+            This is the result of my first team project at KOCCA Game Academy.
+            For the project, students were given 2 weeks to finish their games
+            and were only allowed to use GDI+, which is the graphics library
+            utilizing only CPU-side functionalities, made by Microsoft to be
+            used in WindowsXP. The purpose of the limitations was to see the
+            capability of game designers to plan games if only quite constrained
+            performance is available. These constraints made the projects much
+            more interesting. The designers had to part with many ideas, and the
+            programmers were asked to hugely optimize their code to keep the
+            games running stably. This was so much enjoyable as well as an
+            exceptional experience for me as a programmer.
+          </p>
+          <p>
+            The teams consist of 8-10 people, about 2-3 designers, 3-4
+            programmers, and 3 artists. Designers play a part in communicating
+            between programmers and artists, devising new features, and managing
+            the overall project plan. On the other hand, programmers and artists
+            realize the in-game features proposed by the designers and sometimes
+            request adjustments in plans. My team’s communication went very
+            well. I was the leader of my programming team, and my team quite
+            well managed to overcome numerous technical difficulties. The
+            designers came up with brilliant ideas. The artists did a good job.
+            Everything went so smoothly. As a result, we ended up taking third
+            place in the final project assessment.
+          </p>
+          <p>
+            Unfortunately, the assessment was done only by the game itself, not
+            looking into the code side of the project. However, the main
+            struggle while working on the project was optimization, and my team
+            had to come up with and try various optimization ideas. For this
+            reason, I can’t help but introduce some marvelous programmable ideas
+            that my programming team adapted to the project implementation
+            personally via my portfolio website. Some of them sound somewhat
+            rudimentary, though, please be patient with us. My team and I had
+            not ever made any games before, and this was our very first game
+            project. Any small tweaks or tricks in the code mean so much to us,
+            so bear with me to the end of this article.
+          </p>
+        </section>
+
+        <section className={style.detail_section}>
+          <h1>Game Engine Design Core</h1>
+
+          <p>
+            As the leader of my programming team, I designed the overall
+            structure of the game engine. If we had been given more than 1
+            month, I could’ve made it more complicated. However, the time was
+            limited, so I had to simplify the structure. Basically, my approach
+            to the simplification involved merging small methods into one class
+            and abstracting away unnecessarily complicated parts of the engine,
+            while leaving classes decoupled and cohesive. There were two
+            accomplishments of this. First, because our game primarily revolves
+            around a single interaction, the one between the player and bricks,
+            I streamlined the engine by focusing exclusively on this core
+            interaction system and filtering out less essential components.
+            Secondly, in order to further integrate and optimize the rendering
+            process flexibly, I created an interface called IRenderable,
+            enabling game objects to be inherited from and passed down to the
+            rendering system later. As a result, we were able to efficiently
+            manage and update the visual elements of our game by tailoring the
+            drawing operation of each different game object to its specific
+            needs. Plus, these approaches not only enhanced the performance of
+            the game but also significantly reduced the development time by
+            minimizing and concentrating the overall system.
+          </p>
+
+          <p>
+            Here is the UML diagram of the engine core architecture.
+          </p>
+
+          <Image
+            src={razanya_uml}
+            alt="razanya_uml"
+            style={{
+              width: "100%",
+            }}
+            bstyle={{
+              width: "95%",
+            }}
+          />
+
+          <p>
+            Now, I would like to explain how the Player and Bricks classes, the
+            two main objects in our game, are structured. First, the Player
+            class is based on the IPlayer interface. I’ll further clarify why we
+            needed the IPlayer interface as we proceed. The Player class is
+            merely a data container with a bunch of setters and getters. For
+            example, the variables, such as health, oxygen level, and attack
+            damage, are stored in the Player class. These attributes are then
+            processed by various systems within the game engine to handle
+            specific aspects of game dynamics, such as oxygen level management
+            and player-bricks interaction control. For example,
+            OxygenLevelSystem interacts directly with the oxygen attribute to
+            manage the player’s ability to survive as they dig deeper into the
+            mine. Likewise, the Bricks class, which is named Wall in the game
+            engine, also primarily serves as the data container for multiple
+            rows of bricks, and diverse systems across the gameplay access and
+            manipulate the data in the class for the game dynamics. For example,
+            BricksGenerationSystem is associated with Wall and generates new
+            rows of bricks following the predefined patterns when the player
+            advances in the game, adjusting the difficulty level by varying the
+            types and arrangements of bricks. Also, the Wall class includes the
+            attributes of each brick, such as the brick’s type and durability,
+            that can interact with the player’s actions. For instance, when the
+            player strikes a brick, the PlayerBricksInteractionSystem evaluates
+            the player’s attack damage and the brick’s durability to determine
+            whether the brick will be destroyed or not. If a brick is destroyed,
+            the system rewards the player and occasionally triggers a special
+            effect based on the brick’s type.
+          </p>
+
+          <h2>Data-Oriented Programming</h2>
+          <p>
+            Throughout the discussion of the Player and Bricks classes, it
+            becomes apparent that objects in our game structure typically fall
+            into two major categories, a data container and a system. The data
+            containers, such as the Player and Wall classes, refer to the data
+            models, storing and managing attributes, and the systems govern the
+            behaviors or actions of the game objects. This design principle is
+            rooted in data-oriented programming and is inspired by, though not
+            entirely based on, the Entity-Component-System(ECS) model, which
+            promotes the separation of data and behavior to enhance flexibility
+            and performance. The Wall class, particularly, shows the
+            representative features and strengths of data-oriented programming
+            very well.
+          </p>
+          <p>
+            As I mentioned before, the Wall class is itself a big collection of
+            data on individual Bricks; notably, different categories of large
+            datasets in the Wall class are broken down into separate arrays. For
+            one, the visual data of bricks are independently stored in one array
+            of Bitmap pointers. By consolidating brick data in this way, we
+            ensure data locality, which optimizes memory usage and access
+            patterns. Also, this arrangement allows us to efficiently manage the
+            brick generation and rendering processes, utilizing the power of
+            data-oriented programming to handle large sets of data with high
+            performance.
+          </p>
+
+          <Image
+            src={razanya_bricks_uml}
+            alt="razanya_bricks_uml"
+            style={{
+              width: "100%",
+            }}
+            bstyle={{
+              width: "95%",
+            }}
+          />
+
+          <p>
+            To be more specific, the use of data-oriented programming
+            significantly facilitates the clear separation of data and behavior,
+            enhancing the ease of use of systems. This approach enables several
+            key advantages in system implementation and maintenance.
+          </p>
+          <p>
+            First, as behaviors are strictly separated from data, systems can
+            realize several behaviors using the same underlying data structure
+            without any modifications to the data. For example, the Player class
+            in the project can interact with different game systems that handle
+            specific tasks like oxygen consumption, or damaging bricks. Each of
+            these systems accesses the same player data but performs entirely
+            separate functions. This isolation of concerns not only simplifies
+            code management but also allows for easier updates and debugging.
+          </p>
+          <p>
+            Second, the data-oriented approach allows easier scaling of the size
+            of the game as the complexity of the game grows. Since systems
+            operate on separate components, increasing the number of
+            interactions among game objects typically results in linear scaling
+            of systems rather than steep complexity growth of functionalities of
+            the game objects themselves. For instance, let’s assume that a boss
+            battle system was included in our game. In this case, the existing
+            game object classes remain intact, and only the battle system and a
+            Boss game object could be included. In other words, this
+            architecture of the system enables the extension or addition of new
+            systems without disruption of the existing data structure, even if
+            new game features or new gameplay mechanics are introduced.
+          </p>
+          <p>
+            Lastly, as aforementioned when discussing the Wall class, by
+            enhancing data locality and organizing data following usage
+            patterns, this method of structuring data and systems ensures that
+            the program can process data more efficiently, For instance, the
+            Wall class defines its own Render() function, consumed by
+            RenderSystem during the rendering process, in order to optimize the
+            process of rendering multiple bricks simultaneously by accessing and
+            drawing bricks sprite data stored in one contiguous array of Sprite
+            objects. Additionally, since some bricks share the same sprite data,
+            consolidating the drawing process into a single location can also
+            improve cache coherence. In short, this setup minimizes the cost of
+            irregular accesses of memory and maximizes the throughput of data
+            processing in systems. It is a crucial improvement for high
+            performance where real-time processing is important.
+          </p>
+          <p>
+            This approach of design was the key factor of the performance
+            enhancement in our game engine as well as the central strategy to
+            speed up the development and debugging procedures. By following this
+            design pattern, my team was able to quickly break down the work and
+            distribute tasks effectively. As the implementation of each behavior
+            consists of a system, my team managed to swiftly sketch the next
+            plan and realize requested features in a short term. This modular
+            architecture not only facilitated fast adaptations to changing
+            requirements but also enhanced the collaborative synergy among
+            programmers.
+          </p>
+
+          <h2>Renderer & IRenderable</h2>
+          <p>
+            Continuing to explain the overall structure of the game engine, the
+            RenderSystem and IRenderable are indispensably central to
+            understanding how rendering operations are effectively and flexibly
+            managed in our game. When changing scenes, the RenderSystem cleans
+            up existing render data and registers new IRenderable objects to be
+            drawn in a certain scene. Next, during the gameplay, the system
+            renders them every frame via passing the Graphics instance from GDI+
+            to the Render() function of the IRenderables. Then, the actual
+            rendering operations are processed directly in the Render()
+            functions overridden by the objects inherited from the IRenderable
+            interface. This architecture was to tailor the rendering operations
+            to meet the specific needs of different objects. The Wall is a
+            representative example. Besides that, the Player’s sprites are
+            static, which means there is no need for scaling or rotation of the
+            visual data of the Player. In this case, the Player’s sprite images
+            can be cached through GDI+, further optimizing the drawing process
+            by skipping the conversion of images to the specific image format
+            easily processable by Windows API. To realize this, we can override
+            a Render() function in the Player class and specialize the rendering
+            operation to render only cached bitmap data. For another example of
+            rendering process customization, the Render() function of the
+            SingleSpriteRenderable class is optimized to effectively render one
+            static background image. Also, to handle complex layout of UI
+            components, the UIComponent class has its own Render() function with
+            the distinct order of rendering process. Through this approach of
+            managing draw operations, our game engine ensures efficient
+            rendering cycles and the flexibility for the customization of
+            rendering behaviors to optimize performance and visual quality
+            according to the specific needs of each game object.
+          </p>
+          <Image
+            src={razanya_irenderable_uml}
+            alt="razanya_irenderable_uml"
+            style={{
+              width: "100%",
+            }}
+            bstyle={{
+              width: "95%",
+            }}
+          />
+        </section>
+
+        <section className={style.detail_section}>
+          <h1>GridMap Data Structure & Algorithm</h1>
+          <p>
+            In our game, Razanya33, rapid transition and frequent modification
+            of bricks are crucial due to the dynamic nature of the gameplay. As
+            players dig deeper, rows of bricks need to be efficiently added and
+            removed from the screen to reflect the visual changes of the ground.
+            To handle these operations effectively, my team developed a
+            specialized data structure called GridDeque, inspired by the
+            apparatus of the standard deque, double-ended queue.
+          </p>
+          <p>
+            The primary design requirement for GridDeque was the ability to
+            perform efficient push and pop operations across entire rows of
+            bricks, mimicking the behavior seen in traditional deques but on a
+            two-dimensional grid. Furthermore, it was essential for GridDeque to
+            allow direct access to any element, similar to a 2D array, to
+            facilitate rapid game state updates and changes.
+          </p>
+          {/* GridDeque Example Diagrams */}
+          <Image
+            src={grid_deque_example1}
+            alt="grid_deque_example1"
+            style={{
+              width: "100%",
+            }}
+            bstyle={{
+              width: "95%",
+            }}
+          />
+          <Image
+            src={grid_deque_example2}
+            alt="grid_deque_example2"
+            style={{
+              width: "100%",
+            }}
+            bstyle={{
+              width: "95%",
+            }}
+          />
+          <Image
+            src={grid_deque_example3}
+            alt="grid_deque_example3"
+            style={{
+              width: "100%",
+            }}
+            bstyle={{
+              width: "95%",
+            }}
+          />
+          <Image
+            src={grid_deque_example4}
+            alt="grid_deque_example4"
+            style={{
+              width: "100%",
+            }}
+            bstyle={{
+              width: "95%",
+            }}
+          />
+          <p>
+            To realize this requirement, first, GridDeque organizes data in a
+            grid of the fixed numbers of m rows and n columns, which is
+            internally implemented as a 1D array, enabling both efficient linear
+            data storage and quick access to any row or column. Next, two
+            pointers, hd and tl, mark the current head and tail of the queue
+            within the array. When PopFront() is called, the hd pointer is moved
+            forward to effectively remove the first row, and when PushBack() is
+            executed, new rows are added at the tl pointer, then which adjusts
+            to the new end of the queue. Thus, the mechanism of push and pop in
+            GridDeque achieves O(1) time complexity, as it doesn’t involve
+            linear data movement or copy in memory of multiple elements but mere
+            memory address calculation. Lastly, the subscribe operator is
+            overloaded to allow direct element access like a 2D array. This
+            capability not only simplifies the code and debugging steps but also
+            ensures that frequent element-wise accesses and updates can be
+            handled efficiently.
+          </p>
+          <h2>Pseudo-code of GridDeque Member Functions</h2>
+          <Highlight language="python">
+            {`def POP_FRONT():
+  # Find the end address of the total array.
+  endAddr  = POINTER_TO_ADDRESS(hdPtr + nrows*ncols)
+
+  # Calculate the next memory space
+  nextPtr = hdPtr + ncols
+  nextAddr = POINTER_TO_ADDRESS(nextPtr)
+  
+  # If the next memory block is out of range
+  IF nextAdd > endAdd:
+    # Go to the most front
+    nextAdd -= endAdd
+
+  # Update the head pointer
+  hdPtr = nextAdd
+`}
+          </Highlight>
+          <Highlight language="python">
+            {`def PUSH_BACK(elems):
+  # Assign elements to the array
+  FOR i = 0 to elems.length:
+    tlPtr[i] = elems[i];
+
+  # Find the end address of the total array
+  endAddr  = POINTER_TO_ADDRESS(hdPtr + nrows*ncols)
+
+  # Calculate the next memory space
+  nextPtr = tlPtr + ncols
+  nextAddr = POINTER_TO_ADDRESS(nextPtr)
+  
+  # If the next memory block is out of range
+  IF nextAdd > endAdd:
+    # Go to the most front
+    nextAdd -= endAdd
+
+  # Update the head pointer
+  tlPtr = nextAdd
+`}
+          </Highlight>
+          <Highlight language="python">
+            {`def GET(row, col):
+  # Get the address of the element
+  elemAddr = POINTER_TO_ADDRESS(hdPtr + (col + row*ncols))
+
+  # Find the end address of the total array
+  endAddr  = POINTER_TO_ADDRESS(hdPtr + nrows*ncols)
+
+  # If the next memory block is out of range
+  if elemAddr > endAdd:
+    # Go to the most front
+    elemAddr -= endAdd
+
+  return DEREF(ADDRESS_TO_POINTER(elemAddr))
+`}
+          </Highlight>
+        </section>
+
+        <section className={style.detail_section}>
+          <h1>Player Decorator</h1>
+          <p>
+            In Razanya33, before the game starts, players can choose one special
+            ability among 7 different kinds of abilities, and each ability
+            provides both unique advantages and challenges to the players. This
+            feature of the game not only provides a distinct gameplay experience
+            but also enriches the player’s strategic choices, thereby
+            significantly increasing the replay value and depth of the game by
+            allowing players to customize their gameplay challenges according to
+            their preferences and play styles.
+          </p>
+          <p>Here is the list of special effects.</p>
+          <ul>
+            <li>
+              Anaerobic: Reduces oxygen gain but increases score from certain
+              blocks.
+            </li>
+            <li>Naughty: Flips control keys and standardizes combo counts.</li>
+            <li>Wimp: Slightly reduces attack damage.</li>
+            <li>Pummeler: Extends the duration of combos.</li>
+            <li>
+              SugarGirl: Prolongs the effect duration of specific power-ups.
+            </li>
+            <li>
+              Tenacious Dwarf: Decreases maximum oxygen but increases recovery
+              rate when digging.
+            </li>
+            <li>
+              GoldSeeker: Enhances rewards from gold bricks but reduces standard
+              oxygen recovery."
+            </li>
+          </ul>
+
+          <p>
+            To implement this feature, our programming team needed to introduce
+            PlayerDecorator. PlayerDecorator, as self-explanatory, utilizes the
+            standard decorator design pattern to allow dynamic modification of
+            the player’s actions and states during runtime. The decorator design
+            pattern is particularly useful in games for adding new behaviors or
+            states to objects without altering the code of the existing classes.
+            For example, the Anaerobic decorator in our game modifies the amount
+            of oxygen that players can gain from specific blocks, but increases
+            the score multiplier for those. This function can be realized by
+            overriding the GetOxygenFromOxyBlock() and GetScoreFromOxyBlock() of
+            the Player class in the Anaerobic decorator. In this regard, each
+            decorator can modify the player’s behaviors whereas the code in the
+            Player class remains intact.
+          </p>
+          <Image
+            src={razanya_iplayer_uml}
+            alt="razanya_iplayer_uml"
+            style={{
+              width: "100%",
+            }}
+            bstyle={{
+              width: "95%",
+            }}
+          />
+          <p>
+            To be more specific, in the code, both Player class and the
+            PlayerDecorator class inherit from the IPlayer interface, ensuring
+            that any decorators based on the PlayerDecorator share the same
+            overridden methods as in the Player class. The PlayerDecorator class
+            acts as a base class for all decorators, and when a decorator is
+            created, a reference to an IPlayer object that it decorates should
+            be passed as a pointer. Then, the PlayerDecorator calls the specific
+            functions via the pointer of the decorated IPlayer object. Such
+            architecture allows for easy stacking of decorators on the Player
+            object and altering the player’s behaviors in certain ways. Also,
+            this approach follows the Open/Closed principle, one of the SOLID
+            rules in OOP, which means to open for extension but closed for
+            modification. Therefore, even if we find some extension of the game
+            necessary later in the future, adding or modifying the special
+            abilities of the Player can be done easily, as such operations
+            involve only changes in small snippets of the code or attaching more
+            decorator classes.
+          </p>
+        </section>
+
+        <section className={style.detail_section}>
+          <h1>Button & Event Listener</h1>
+          <p>
+            In Razanya33, the Button class extends the UIComponent and serves as
+            the interactive elements on the user interface, allowing players to
+            execute variant actions such as starting the game, or navigating
+            menus.The Button class is equipped with a series of event states
+            such as MouseEnter, MouseLeave, MouseDown, and MouseUp. It
+            incorporates an unordered map to hold event handlers, enabling the
+            button to execute specific functions when interacted with. This
+            modular design allows for easy customization of button behaviors on
+            different screens within the game. Then, the HitTest method checks
+            if the mouse coordinates fall within the button’s boundaries. When a
+            mouse event occurs, the corresponding handler, like OnMouseEnter or
+            OnMouseUp, is called, which then checks for registered events in the
+            eventHandlers map and executes the bound function if available.
+          </p>
+          <p>
+            To manage multiple buttons efficiently, especially in a game where
+            several UI elements might be active simultaneously, the
+            ButtonEventHandler class oversees all button interactions in a
+            scene. It holds references to all buttons and processes mouse events
+            by iterating through each button, determining if an action should be
+            triggered based on the mouse’s position and state. For example, in
+            the EntryScene, buttons are initialized with specific roles, such as
+            starting a new game, or showing the credit scene. Each button is
+            linked to its respective function via the AddEventListener method.
+            Consider the button starting the new game when clicked. The start
+            button might bind an event listener functor that contains the
+            operations to go to the gameplay scene with an event, "mouseClick".
+            This implementation of button event handling logic streamlines the
+            development process by enabling developers to easily customize the
+            event listeners bound to buttons and flexibly implement intuitive
+            navigation and control systems within the scenes.
+          </p>
+
+          {/* TODO: Button Pseudo-code */}
+          <Highlight language="python">
+            {`def ADD_EVENT_LISTENER(event, callback):
+  eventHandler[event] = callback;
+`}
+          </Highlight>
+
+          <Highlight language="python">
+            {`def ON_MOUSE_ENTER():
+  if eventHandler.find["mouseEnter"]:
+    execute(eventHander["mouseEnter"])
+  isHover = true
+`}
+          </Highlight>
+
+          <Highlight language="python">
+            {`def ON_MOUSE_LEAVE():
+  if eventHandler.find["mouseLeave"]:
+    execute(eventHander["mouseLeave"])
+  isHover = false
+  isPressed = false
+`}
+          </Highlight>
+
+          <Highlight language="python">
+            {`def ON_MOUSE_DOWN():
+  isPressed = true
+  if eventHandler.find["mouseDown"]:
+    execute(eventHander["mouseDown"])
+`}
+          </Highlight>
+
+          <Highlight language="python">
+            {`def ON_MOUSE_UP():
+  if isPressed:
+    if eventHandler.find["mouseClick"]:
+      execute(eventHandler["mouseClick"])
+
+    # Reset isPressed
+    isPressed = false
+
+  else:
+    ON_MOUSE_ENTER()
+`}
+          </Highlight>
+
+          <Highlight language="python">
+            {`# AABB hit test
+def HIT_TEST(button, mouseX, mouseY):
+  return mouseX >= button.x && 
+    mouseX <= (button.x + button.width) &&
+    mouseY >= button.y && 
+    mouseY <= (button.y + button.height)
+`}
+          </Highlight>
+
+          <Highlight language="python">
+            {`def HANDLE_MOUSE_EVENT():
+  for button in buttons:
+    if HIT_TEST(button, mouseX, mouseY) is true:
+      if mouseDown:
+        button.ON_MOUSE_DOWN()
+      elif mouseUp:
+        button.ON_MOUSE_UP()
+    elif button.isHover:
+      button.ON_MOUSE_LEAVE()
+`}
+          </Highlight>
+        </section>
+      </>
+    ),
+  },
+
+  alcove: {
+    title: "PROJECT: Alcove",
+    thumbnail: <img src={null} alt="In Progress" />,
+    github: null,
+    description:
+      "An game graphics engine powered by Vulcan with the state-of-the-art rendering technologies",
+    skills: ["Vulcan", "C++"],
     detail: (
       <>
         <section className={style.detail_section}>
@@ -88,19 +729,10 @@ const projectData = {
 
   unreal_projects: {
     title: "Unreal Projects",
-    thumbnail: (
-      <img
-        src={null}
-        alt="No Image"
-      />
-    ),
+    thumbnail: <img src={null} alt="No Image" />,
     github: null,
-    description:
-      "Unreal Projects",
-    skills: [
-      "Unreal Engine",
-      "C++",
-    ],
+    description: "Unreal Projects",
+    skills: ["Unreal Engine", "C++"],
     detail: (
       <>
         <section className={style.detail_section}>
@@ -292,55 +924,96 @@ const projectData = {
             many blood points as possible.
           </p>
           <p>
-            Let's assume there are {<MathComponent display={false} tex="n" />} nodes.<br></br>
-            And, we have a path {<MathComponent display={false} tex="P_1" />}{" "}
-            with the least number of closed nodes.
-            The path {<MathComponent display={false} tex="P_1" />} obtains {<MathComponent display={false} tex="c_1" />} closed nodes
-            in the total of {<MathComponent display={false} tex="t_1" />} turns.<br></br>
-            Let's say the path {<MathComponent display={false} tex="P_1" />} is not optimal.<br></br>
-            Then, there exists an optimal path, {<MathComponent display={false} tex="P_2" />}. <br></br>
-            The path {<MathComponent display={false} tex="P_2" />} obtains {<MathComponent display={false} tex="c_2" />} closed nodes
-            in the total of {<MathComponent display={false} tex="t_2" />}. <br></br>
-            As we assumed that the path {<MathComponent display={false} tex="P_1" />} has the least
-            closed nodes, {<MathComponent display={false} tex="c_1 < c_2" />}. <br></br>
+            Let's assume there are {<MathComponent display={false} tex="n" />}{" "}
+            nodes.<br></br>
+            And, we have a path {
+              <MathComponent display={false} tex="P_1" />
+            }{" "}
+            with the least number of closed nodes. The path{" "}
+            {<MathComponent display={false} tex="P_1" />} obtains{" "}
+            {<MathComponent display={false} tex="c_1" />} closed nodes in the
+            total of {<MathComponent display={false} tex="t_1" />} turns.
             <br></br>
-            <strong>Case 1</strong> The number of player's nodes is {<MathComponent display={false} tex="t_1" />}.<br></br>
-            In this case, {<MathComponent tex="n = (t_1 + c_1) + t_1 = 2 t_1 + c_1" />}
+            Let's say the path {<MathComponent display={false} tex="P_1" />} is
+            not optimal.<br></br>
+            Then, there exists an optimal path,{" "}
+            {<MathComponent display={false} tex="P_2" />}. <br></br>
+            The path {<MathComponent display={false} tex="P_2" />} obtains{" "}
+            {<MathComponent display={false} tex="c_2" />} closed nodes in the
+            total of {<MathComponent display={false} tex="t_2" />}. <br></br>
+            As we assumed that the path{" "}
+            {<MathComponent display={false} tex="P_1" />} has the least closed
+            nodes, {<MathComponent display={false} tex="c_1 < c_2" />}.{" "}
+            <br></br>
+            <br></br>
+            <strong>Case 1</strong> The number of player's nodes is{" "}
+            {<MathComponent display={false} tex="t_1" />}.<br></br>
+            In this case,{" "}
+            {<MathComponent tex="n = (t_1 + c_1) + t_1 = 2 t_1 + c_1" />}
             Therefore, {<MathComponent tex="t_1 = \frac{n - c_1}{2}" />},
-            meaning that the player takes {<MathComponent display={false} tex="\frac{n - c_1}{2}" />} nodes.<br></br>
+            meaning that the player takes{" "}
+            {<MathComponent display={false} tex="\frac{n - c_1}{2}" />} nodes.
             <br></br>
-            In order to compare the number of player's nodes when the path {<MathComponent display={false} tex="P_2" />},
-            we need to consider two different cases.<br></br>
-            <strong>First</strong>, when the number of player's nodes is {<MathComponent display={false} tex="t_2" />}.<br></br>
-            As in the previous case, {<MathComponent tex="n = (t_2 + c_2) + t_2 = 2 t_2 + c_2" />}
+            <br></br>
+            In order to compare the number of player's nodes when the path{" "}
+            {<MathComponent display={false} tex="P_2" />}, we need to consider
+            two different cases.<br></br>
+            <strong>First</strong>, when the number of player's nodes is{" "}
+            {<MathComponent display={false} tex="t_2" />}.<br></br>
+            As in the previous case,{" "}
+            {<MathComponent tex="n = (t_2 + c_2) + t_2 = 2 t_2 + c_2" />}
             Therefore, {<MathComponent tex="t_2 = \frac{n - c_2}{2}" />}
-            <strong>Second</strong>, when the number of player's nodes is one more than {<MathComponent display={false} tex="t_2" />},
-            thereby, {<MathComponent display={false} tex="t_2 + 1" />}.<br></br>
-            In this case, {<MathComponent tex="n = (t_2 + c_2) + (t_2 + 1) = 2 t_2 + c_2 + 1" />}
+            <strong>Second</strong>, when the number of player's nodes is one
+            more than {<MathComponent display={false} tex="t_2" />}, thereby,{" "}
+            {<MathComponent display={false} tex="t_2 + 1" />}.<br></br>
+            In this case,{" "}
+            {
+              <MathComponent tex="n = (t_2 + c_2) + (t_2 + 1) = 2 t_2 + c_2 + 1" />
+            }
             Therefore, {<MathComponent tex="t_2 = \frac{n - c_2 - 1}{2}" />}
-            Now, let's compare the number of player's nodes taken each case.
-            For the first case, as {<MathComponent display={false} tex="c_1 < c_2" />},
-            {<MathComponent tex="t_1 = \frac{n - c_1}{2} > t_2 = \frac{n - c_2}{2}" />}
-            For the second case, 
-            {<MathComponent tex="t_1 = \frac{n - c_1}{2} > t_2 = \frac{n - c_2 - 1}{2}" />}
-            In both cases, the player takes more nodes when the path {<MathComponent display={false} tex="P_1" />} is taken
-            by the Entity, making the player spend more blood points.<br></br>
-            However, as we assume that the path {<MathComponent display={false} tex="P_2" />} should be optimal than any other paths,
-            the conclusion conflict with the assumption.<br></br>
+            Now, let's compare the number of player's nodes taken each case. For
+            the first case, as{" "}
+            {<MathComponent display={false} tex="c_1 < c_2" />},
+            {
+              <MathComponent tex="t_1 = \frac{n - c_1}{2} > t_2 = \frac{n - c_2}{2}" />
+            }
+            For the second case,
+            {
+              <MathComponent tex="t_1 = \frac{n - c_1}{2} > t_2 = \frac{n - c_2 - 1}{2}" />
+            }
+            In both cases, the player takes more nodes when the path{" "}
+            {<MathComponent display={false} tex="P_1" />} is taken by the
+            Entity, making the player spend more blood points.<br></br>
+            However, as we assume that the path{" "}
+            {<MathComponent display={false} tex="P_2" />} should be optimal than
+            any other paths, the conclusion conflict with the assumption.
+            <br></br>
             Thus, it is a contradiction.
             <br></br>
-            <strong>Case 2</strong> The number of player's nodes is {<MathComponent display={false} tex="t_1 + 1" />}.<br></br>
-            Likewise, we need to compare two different cases of the path {<MathComponent display={false} tex="P_2" />}.<br></br>
-            For the first case, as {<MathComponent display={false} tex="c_1 < c_2" />},
-            {<MathComponent tex="t_1 = \frac{n - c_1 - 1}{2} \ge t_2 = \frac{n - c_2}{2}" />}
-            For the second case, 
-            {<MathComponent tex="t_1 = \frac{n - c_1 - 1}{2} > t_2 = \frac{n - c_2 - 1}{2}" />}
-            Thus, in the <strong>Case 2</strong>, the path {<MathComponent display={false} tex="P_1" />} is also optimal
-            than the path {<MathComponent display={false} tex="P_2" />}.<br></br>
+            <strong>Case 2</strong> The number of player's nodes is{" "}
+            {<MathComponent display={false} tex="t_1 + 1" />}.<br></br>
+            Likewise, we need to compare two different cases of the path{" "}
+            {<MathComponent display={false} tex="P_2" />}.<br></br>
+            For the first case, as{" "}
+            {<MathComponent display={false} tex="c_1 < c_2" />},
+            {
+              <MathComponent tex="t_1 = \frac{n - c_1 - 1}{2} \ge t_2 = \frac{n - c_2}{2}" />
+            }
+            For the second case,
+            {
+              <MathComponent tex="t_1 = \frac{n - c_1 - 1}{2} > t_2 = \frac{n - c_2 - 1}{2}" />
+            }
+            Thus, in the <strong>Case 2</strong>, the path{" "}
+            {<MathComponent display={false} tex="P_1" />} is also optimal than
+            the path {<MathComponent display={false} tex="P_2" />}.<br></br>
             This is also contradiction.<br></br>
             <br></br>
-            As both <strong>Case 1</strong> and <strong>Case 2</strong> are contradictions,{" "}
-            <strong>the path {<MathComponent display={false} tex="P_1" />} is optimal</strong>.
+            As both <strong>Case 1</strong> and <strong>Case 2</strong> are
+            contradictions,{" "}
+            <strong>
+              the path {<MathComponent display={false} tex="P_1" />} is optimal
+            </strong>
+            .
           </p>
           <h2>Implementation</h2>
           <p>
@@ -360,7 +1033,7 @@ const projectData = {
           </p>
           <Highlight>
             {`PROCEDURE ACTION(g, curr):
-  '1. Plan the next move
+  -- 1. Plan the next move
   node := NULL
   node <- SEARCH_NEXT_CONSUMPTION(curr)
   IF node == NULL
@@ -369,7 +1042,7 @@ const projectData = {
     return FAIL
 
 
-  '2. Execute the plan and consume the next node
+  -- 2. Execute the plan and consume the next node
   CONSUME_NODE(node)
   CONSUME_CLOSED_PATHS(node)
   return SUCCESS`}
@@ -380,14 +1053,14 @@ const projectData = {
             nodes. The procedure facilitates a helper procedure, `TRAVERSAL`, to
             determine which neighboring node yields the optimal result.
           </p>
-          <Highlight>
-            {`'Find the longest path with the least number of closed nodes.
-'It minimizes the number of nodes taken in a single turn.
-'Minimize the number of nodes to be closed
-'Maximize the number of nodes to be traveled
+          <Highlight language="elm">
+            {`-- Find the longest path with the least number of closed nodes.
+-- It minimizes the number of nodes taken in a single turn.
+-- Minimize the number of nodes to be closed
+-- Maximize the number of nodes to be traveled
 PROCEDURE SEARCH_NEXT_CONSUMPTION(curr):
-  'If curr is null, it means Entity is not in the web.
-  'Go search the next starting node.
+  -- If curr is null, it means Entity is not in the web.
+  -- Go search the next starting node.
   IF curr is NULL return NULL
 
 
@@ -435,9 +1108,9 @@ PROCEDURE SEARCH_NEXT_CONSUMPTION(curr):
     res := GET_RANDOM_NODE_FROM_(nodes)
 
 
-    'Check if this is the first turn of Entity
+    -- Check if this is the first turn of Entity
     IF origin is NULL AND i is 3
-      'Generate Entity and connect it with the res
+      -- Generate Entity and connect it with the res
       GENERATE_ENTITY(g, res)
 
 
@@ -461,9 +1134,9 @@ PROCEDURE SEARCH_NEXT_CONSUMPTION(curr):
   count <- count + 1
 
 
-  'Goes to adjacent nodes which are not visited or taken
-  'Check if there is at least one open child path
-  'If it is, this path is not closed
+  -- Goes to adjacent nodes which are not visited or taken
+  -- Check if there is at least one open child path
+  -- If it is, this path is not closed
   isDeadend := TRUE
   isClosed := TRUE
 
@@ -477,22 +1150,22 @@ PROCEDURE SEARCH_NEXT_CONSUMPTION(curr):
       isDeadend <- FALSE
 
 
-    'If there is an adjacent node colored red, taken by the player
-    'This path is not closed yet
+    -- If there is an adjacent node colored red, taken by the player
+    -- This path is not closed yet
     IF n.color is RED
       isClosed <- FALSE
 
 
-  'If every local path is closed, this node is closed
+  -- If every local path is closed, this node is closed
   IF isClosed
     numClosedNodes <- numClosedNodes + 1
-  ELSE  'This node is opened
-    IF isDeadend  'This node is at the end of a path
-      IF max < count  'Find the max count
+  ELSE  -- This node is opened
+    IF isDeadend  -- This node is at the end of a path
+      IF max < count  -- Find the max count
         max <- count
 
 
-  'Reset properties when terminate
+  -- Reset properties when terminate
   curr.color <- tempColor
   count <- count - 1
 
@@ -1158,16 +1831,16 @@ ApplyDynamicConstraints(id, dt, currPos, nextPos):
         </section>
 
         <section className={style.detail_section}>
-           <h1>K-means Clustering</h1>
-           <h2>Headline</h2>
-           <p>Context</p>
-         </section>
+          <h1>K-means Clustering</h1>
+          <h2>Headline</h2>
+          <p>Context</p>
+        </section>
 
-         <section className={style.detail_section}>
-           <h1>Parallel Programming</h1>
-           <h2>Headline</h2>
-           <p>Context</p>
-         </section>
+        <section className={style.detail_section}>
+          <h1>Parallel Programming</h1>
+          <h2>Headline</h2>
+          <p>Context</p>
+        </section>
       </>
     ),
   },
@@ -1294,10 +1967,11 @@ ApplyDynamicConstraints(id, dt, currPos, nextPos):
             calculations, FABRIK exhibits a more intuitive approach to IK
             problems. Instead of calculating joint angles, it uses a geometric
             approach.<br></br>
-            Paper Reference 
+            Paper Reference
             <a href="http://www.andreasaristidou.com/publications/papers/FABRIK.pdf">
               <FontAwesomeIcon icon={faLink} />
-            </a>.
+            </a>
+            .
           </p>
         </section>
       </>
@@ -1576,10 +2250,10 @@ ApplyDynamicConstraints(id, dt, currPos, nextPos):
         </section>
 
         <section className={style.detail_section}>
-           <h1>Ray Tracing</h1>
-           <h2>Headline</h2>
-           <p>Context</p>
-         </section>
+          <h1>Ray Tracing</h1>
+          <h2>Headline</h2>
+          <p>Context</p>
+        </section>
       </>
     ),
   },

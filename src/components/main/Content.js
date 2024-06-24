@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import sleep from "../../utils/Sleep";
 import Dialog from "./Dialog";
 import InnerSlides from "./sub/InnerSlides";
+import Timeline from "./sub/Timeline";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -245,45 +246,6 @@ function About() {
             </div>
           </div>
         </div>
-
-        {/* timeline */}
-        <div className={`${style.timeline}`}>
-          <div className={`${style.headline}`}>Timeline</div>
-
-          <div className={`${style.milestone}`}>
-            <div className={`${style.title}`}>
-              <span>2018-2023</span> University of Minnesota, Minneapolis, MN
-            </div>
-            <div className={`${style.content}`}>
-              During my time at UMN, I laid a solid foundation for my future in
-              computer science. In the early years, I delved into core concepts
-              like algorithm analysis, programming optimization from the machine
-              architectural view, and software design patterns. In my senior
-              years, I shifted my focus towards the study of computer graphics
-              and rendering. Courses like Interactive Computer Graphics, Motion
-              Planning & Animation, Advanced Linear Algebra, and Parallel
-              Computing, broadened my technical knowledge and fueled my passion
-              about this field. This academic journey helps me hone my
-              problem-solving skills and creative thinking.
-            </div>
-          </div>
-          <div className={`${style.milestone}`}>
-            <div className={`${style.title}`}>
-              <span>2022-2023</span> UMN CS&E - Teaching Assistant
-            </div>
-            <div className={`${style.content}`}>
-              My role as a Teaching Assistant in the CS&E department further
-              sharpened my leadership and mentoring abilities, allowing me to
-              give back to the academic community while solidifying my own
-              understanding. I delivered lectures about machine architecture and 
-              operating system. I also created auto-graders in C to evaluate 
-              students' projects for effective and reliable assessment, 
-              leveraging the unit test methodology. Collaborating with fellow 
-              TAs, I tried to contribute to the improvement of students' learning
-              experience in the college.
-            </div>
-          </div>
-        </div>
       </div>
     );
   }
@@ -479,7 +441,7 @@ function About() {
 
             <h3>Testing</h3>
             <div>
-              <span>GTest</span> <span>JUnit</span>
+              <span>GTest</span> <span>Catch2</span> <span>JUnit</span>
             </div>
 
             <h3>Build Tools</h3>
@@ -510,6 +472,7 @@ function About() {
       <div className={`${style.column}`}>
         <InnerSlides>
           <AboutMe />
+          <Timeline />
           <Expertise />
           <Skills />
         </InnerSlides>
@@ -526,6 +489,7 @@ function Work() {
   // ];
 
   const projects = [
+    projectData.Razanya33,
     projectData.alcove,
     projectData.unreal_projects,
     projectData.pft,
@@ -677,10 +641,10 @@ function Contact() {
       <div className={`${style.header} ${style.font__Nunito}`}>Contact Me</div>
 
       <div className={`${style.contact_section} ${style.font__PTSans}`}>
-        Email: choi0740@umn.edu || choi147157@gmail.com <br></br>
+        Email: choi147157@gmail.com <br></br>
         Phone: {"(+82)"}10-7339-5016 || {"(+01)"}612-615-2415 <br></br>
 
-        <p>
+        <p style={{fontSize: "calc(var(--text-para)*0.65)"}}>
           Or drop your email via this form. I'll response as soon as possible.
         </p>
         <ContactMe />

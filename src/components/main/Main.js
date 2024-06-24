@@ -36,20 +36,19 @@ class Main extends React.Component {
     console.log(this.state.nav);
   }
 
-  componentDidMount() {
-    this.mount();
-  }
-
-  componentDidUpdate() {
-
-  }
-
   handleUpButtonClick() {
     this.changeNavIndex(this.state.nav-1);
   }
 
   handleDownButtonClick() {
     this.changeNavIndex(this.state.nav+1);
+  }
+
+  componentDidMount() {
+    this.mount();
+  }
+
+  componentWillUnmount() {
   }
 
   render() {

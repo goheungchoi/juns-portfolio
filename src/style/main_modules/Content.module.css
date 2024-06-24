@@ -74,6 +74,17 @@
   padding-left: calc(2rem);
 }
 
+/* Half screen */
+@media screen and (max-width: 958px) {
+  .body {
+    justify-content: center;
+  }
+
+  .left_box {
+    padding: 0;
+  }
+}
+
 .center_box {
   width: 100%;
   height: 100%;
@@ -381,6 +392,16 @@
   text-indent: 1.2rem;
 }
 
+@media screen and (max-width: 958px) {
+  .headline {
+    text-indent: 0;
+  }
+
+  .info {
+    text-indent: 0;
+  }
+}
+
 .text__capital {
   text-transform: uppercase;
 }
@@ -497,39 +518,28 @@
 }
 
 .introduction > .name {
-  color: rgb(180, 180, 180);
+  color: #cab3a9;
   font-size: var(--text-para);
   font-weight: bold;
 }
 
 .introduction > .major {
-  color: rgb(100, 100, 100);
+  color: #e4d5ce;
   font-size: 24px;
   font-weight: bold;
 }
 
+@media screen and (max-width: 958px) {
+  .introduction > .major {
+    font-size: 18px;
+  }
+}
+
 .introduction > .tell_about_myself {
-  color: var(--text);
+  color: #f4efed;
   font-size: 16px;
-  font-weight: bold;
+  /* font-weight: bold; */
   text-align: justify !important;
-}
-
-.timeline {
-  width: 100%;
-
-  overflow: scroll;
-}
-
-.milestone > .title {
-  color: rgb(50, 50, 50);
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.milestone > .title > span {
-  color: var(--accent);
-  font-size: 16px;
 }
 
 .contact_section {

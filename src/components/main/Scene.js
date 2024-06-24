@@ -10,6 +10,8 @@ const demoSheet = getProject('Demo Project', {state: flyThroughCamera}).sheet('D
 
 // const playheadIntervals = [[0, 0], [0, 1], [1, 2], [2, 3]]
 
+const FIXED_FRAME = 1.0 / 60.0;
+
 function Meshes({nav}) {
   const [currentNav, setCurrentNav] = useState(0);
   // const [interval, setInterval] = useState([0, 0]);
@@ -21,20 +23,35 @@ function Meshes({nav}) {
   const meshRef = useRef(null);
   const boxRef = useRef(null);
 
+  const [frameTime, setFrameTime] = useState(0.0);
+  const [accumulator, setAccumulator] = useState(0.0);
+  const [prevTime, setPrevTime] = useState(0.0);
+  const [currTime, setCurrTime] = useState(0.0);
   useFrame(({ clock, camera }) => {
     if (!pointsRef || !meshRef) return;
     const elaspedTime = clock.getElapsedTime();
-    meshRef.current.rotation.y = -elaspedTime/100;
-    pointsRef.current.rotation.y = -elaspedTime/100;
-    boxRef.current.rotation.z = +elaspedTime/5;
+    setCurrTime(elaspedTime);
+    setFrameTime(currTime - prevTime);
+    setPrevTime(currTime);
+    
+    if (frameTime > 0.25) setFrameTime(0.25);
 
-    meshRef.current.rotation.x = elaspedTime/500;
-    pointsRef.current.rotation.x = elaspedTime/500;
-    boxRef.current.rotation.x = +elaspedTime/5;
+    setAccumulator(accumulator + frameTime);
+    if (accumulator >= FIXED_FRAME) {
+      setAccumulator(accumulator - FIXED_FRAME);
+      meshRef.current.rotation.y = -elaspedTime/100;
+      pointsRef.current.rotation.y = -elaspedTime/100;
+      boxRef.current.rotation.z = +elaspedTime/5;
 
+      meshRef.current.rotation.x = elaspedTime/500;
+      pointsRef.current.rotation.x = elaspedTime/500;
+      boxRef.current.rotation.x = +elaspedTime/5;
+    }
+    
     const shouldMoveForward = (0 < playheadSpeed) && (sheet.sequence.position < nav);
     const shouldMoveBackward = (playheadSpeed < 0) && (sheet.sequence.position > nav);
     sheet.sequence.position += (playheadSpeed * (shouldMoveForward || shouldMoveBackward));
+
     // console.log('nav', nav);
     // console.log('playheadSpeed', playheadSpeed);
     // console.log('shouldMoveForward', shouldMoveForward);

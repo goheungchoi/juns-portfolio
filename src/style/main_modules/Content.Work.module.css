@@ -47,7 +47,24 @@
   }
 }
 
+/* Half screen */
+@media screen and (max-width: 958px) {
+  .container_layout {
+    grid-template-columns: repeat(4, 6em);
+  
+    grid-auto-rows: 6em;
+    grid-auto-columns: 6em;
+
+    gap: 4rem;
+
+    justify-content: space-around;
+  }
+}
+
 .card {
+  width: 16em;
+  height: 16em;
+
   position: relative;
   overflow: hidden;
   

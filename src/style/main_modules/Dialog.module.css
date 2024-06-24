@@ -31,6 +31,12 @@
   border-radius: 1rem;
 }
 
+@media screen and (max-width: 958px) {
+  .window {
+    max-width: 90%;
+  }
+}
+
 .closeButton {
   cursor: pointer;
   position: absolute;
@@ -94,7 +100,7 @@
 }
 
 .detail {
-  color: #fffdd0;
+  color: #D3D3D3;
   font-size: 1.5rem;
 
   margin-bottom: 2rem;

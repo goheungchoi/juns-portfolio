@@ -1,3 +1,4 @@
+/* Caution: This background is not being used no more. */
 import { Plane, Stars, OrbitControls, useGLTF } from '@react-three/drei'
 import { Canvas, useFrame, useLoader } from '@react-three/fiber'
 import { useEffect, useRef, useState, Suspense } from 'react';
